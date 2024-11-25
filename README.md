@@ -45,3 +45,6 @@ deactivate
 ```
 python run.py
 ```
+# TODO (2024.11.25)
+- Bootstrap 연동해서 프런트 구성
+- MYSQL 연동하기
