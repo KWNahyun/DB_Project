@@ -40,3 +40,8 @@ deactivate
 # 아키텍쳐
 ![alt text](image.png)
 **uWSGI를 사용하려면 우분투 환경이 필요하므로 윈도웅에서 사용할 수 있는 gunicorn으로 middleware를 구성하는 것으로 변경한다.**
+
+# 서버 실행
+```
+python run.py
+```
