@@ -1,6 +1,26 @@
 # DB_Project
 2024-2학기 데이터베이스 프로젝트 레포지토리
-
+# 깃 사용법
+- Clone
+```
+git clone https://github.com/KWNahyun/DB_Project.git
+```
+- Pull
+개발 전에 pull해서 꼭 다른 팀원의 변경사항 반영해주기! 안 그러면 나중에 겁나 꼬여요...
+```
+git pull origin main
+```
+- Commit
+```
+git add *
+git commit -m "커밋 메시지 상세히 작성해주세요"
+```
+- Push
+개발 이후에 push해서 꼭 변경사항 깃허브에 올려주기~ 안 그러면 나중에 겁나 꼬여요...
+```
+git push origin main
+```
+**근데 그냥 vscode에서 add, commit, push, pull하면 편함**
 # 가상환경 설정
 - 가상환경 생성
 ```
