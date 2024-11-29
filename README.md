@@ -26,6 +26,10 @@ git push origin main
 ```
 python -m venv db_env
 ```
+- 라이브러리 설치
+```
+pip install -r requirements.txt
+```
 - 가상환경 활성화
 ```
 db_env/Scripts/activate
