@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>마이 메모 앱 홈페이지</title>
+    <title>도서 대여 관리 시스템</title>
     <style>
         body { font-family: Arial, sans-serif; }
         .container {
@@ -31,8 +31,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>마이 메모 앱에 오신 것을 환영합니다!</h1>
-        <p>간단한 메모를 작성하고 관리할 수 있는 앱입니다.</p>
+        <h1>도서 대여 페이지에 오신 것을 환영합니다!</h1>
+        <p>도서 목록을 둘러보고 대여 및 반납 신청을 할 수 있습니다.</p>
 
         <!-- 로그인 폼 -->
         <form id="loginForm" action="/login" method="post">
@@ -87,7 +87,7 @@
             .then(data => {
                 alert(data.message);
                 // 성공 시 페이지 리다이렉션
-                window.location.href = '/memos';
+                window.location.href = '/library';
             })
             .catch(error => {
                 alert('로그인 실패: ' + error.message);
