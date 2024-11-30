@@ -49,6 +49,26 @@ deactivate
 ```
 python run.py
 ```
+# mysql 서버 접속
+```mysql shell
+\sql
+\connect --mysql nahyun@localhost:3306
+```
+# 서버 접속 확인 (명령 프롬프트 창에서)
+```cmd
+net start | find "MySQL"
+```
+# mysql user 생성
+- 기존 user 확인
+```mysql
+use mysql;
+select user, host from user;
+```
+- 새 user 생성
+```mysql
+create user USER_ID@localhost identified by 'USER_PASSWORD'; 
+grant all privileges on *.* to USER_ID@localhost;
+```
 # TODO (2024.11.25)
 - Bootstrap 연동해서 프런트 구성
 - MYSQL 연동하기
