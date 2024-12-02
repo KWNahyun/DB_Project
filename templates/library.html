@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 관리</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">도서 관리</h1>
+        
+        <!-- 도서 목록 테이블 -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">도서명</th>
+                    <th scope="col">저자</th>
+                    <th scope="col">대여 가능 여부</th>
+                    <th scope="col">대출/반납</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>
+                        {% if book.availability %}
+                        <span class="badge badge-success">대여 가능</span>
+                        {% else %}
+                        <span class="badge badge-danger">대여 중</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if book.availability %}
+                            <form method="POST" action="{{ url_for('rent_book', book_id=book.id) }}">
+                                <button type="submit">대출</button>
+                            </form>
+                        {% else %}
+                            <form method="POST" action="{{ url_for('return_book', book_id=book.id) }}">
+                                <button type="submit">반납</button>
+                            </form>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                
+                {% if not books %}
+                <tr>
+                    <td colspan="4">등록된 도서가 없습니다.</td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
