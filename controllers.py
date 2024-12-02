@@ -28,7 +28,7 @@ def setup_routes(app):
             return jsonify({'error': '아이디가 없거나 패스워드가 다릅니다.'}), 401
         return redirect(url_for('home'))
 
-    @app.route('/logout')
+    @app.route('/logout', methods=['POST']) 
     @login_required
     def logout():
         logout_user()
