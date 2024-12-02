@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 우상단 버튼 -->
+        <div class="d-flex justify-content-end my-2">
+            <a href="{{ url_for('library') }}" class="btn btn-secondary">도서 관리</a>
+        </div>
+
+        <h1 class="my-4">My Page</h1>
+
+        <div class="user-info">
+            <h2>회원 정보</h2>
+            <p><strong>사용자 이름:</strong> {{ user.username }}</p>
+            <p><strong>이메일:</strong> {{ user.email }}</p>
+        </div>
+
+        <div class="rentals">
+            <h2>대여 중인 도서</h2>
+            {% if rentals %}
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">도서명</th>
+                            <th scope="col">저자</th>
+                            <th scope="col">대여일</th>
+                            <th scope="col">반납일</th>
+                            <th scope="col">상태</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rental in rentals %}
+                        <tr>
+                            <td>{{ rental.book.title }}</td>
+                            <td>{{ rental.book.author }}</td>
+                            <td>{{ rental.rental_date }}</td>
+                            <td>{{ rental.return_date }}</td>
+                            <td>{{ rental.status }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>대여 중인 도서가 없습니다.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

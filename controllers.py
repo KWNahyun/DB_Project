@@ -98,4 +98,10 @@ def setup_routes(app):
                 rental.status = '반납 완료'  # 상태 업데이트
                 db.session.commit()  # 데이터베이스에 커밋하여 저장
                 return redirect(url_for('library'))  # 도서관 페이지로 리다이렉트
-        return redirect(url_for('library'))  # 반납할 도서가 없으면 도서관 페이지로 리다이렉트
+        return redirect(url_for('library'))  # 반납할 도서가 없으면 도서관 페이지로 리다이렉트    
+
+    @app.route('/mypage')
+    @login_required
+    def mypage():
+        rentals = Rental.query.filter_by(user_id=current_user.id).all()
+        return render_template('mypage.html', user=current_user, rentals=rentals)

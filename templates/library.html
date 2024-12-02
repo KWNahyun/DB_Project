@@ -8,6 +8,11 @@
 </head>
 <body>
     <div class="container">
+        <!-- 우상단 버튼 -->
+        <div class="d-flex justify-content-end my-2">
+            <a href="{{ url_for('mypage') }}" class="btn btn-primary">My Page</a>
+        </div>
+
         <h1 class="my-4">도서 관리</h1>
         
         <!-- 도서 목록 테이블 -->
@@ -35,11 +40,11 @@
                     <td>
                         {% if book.availability %}
                             <form method="POST" action="{{ url_for('rent_book', book_id=book.id) }}">
-                                <button type="submit">대출</button>
+                                <button type="submit" class="btn btn-sm btn-success">대출</button>
                             </form>
                         {% else %}
                             <form method="POST" action="{{ url_for('return_book', book_id=book.id) }}">
-                                <button type="submit">반납</button>
+                                <button type="submit" class="btn btn-sm btn-warning">반납</button>
                             </form>
                         {% endif %}
                     </td>

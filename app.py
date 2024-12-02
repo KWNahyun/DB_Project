@@ -7,7 +7,8 @@ from controllers import setup_routes
 app = Flask(__name__)
 
 # 구성 설정
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://dayeon:dayeon@localhost/my_library'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://dayeon:dayeon@localhost/my_library'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://nahyun:nahyun@localhost/my_library'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'mysecretkey'
 
