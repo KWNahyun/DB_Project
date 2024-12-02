@@ -3,6 +3,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 from models import db, User, Book, Rental
 from datetime import datetime
 from login_manager import login_manager
+from datetime import timedelta
 
 def setup_routes(app):
 
@@ -70,13 +71,14 @@ def setup_routes(app):
                 db.session.rollback()
                 return jsonify({'error': '회원가입 중 오류가 발생했습니다. 다시 시도해주세요.'}), 500
 
-        return redirect(url_for('home'))
+        return redirect(url_for('home'))    
 
     @app.route('/library')
     @login_required
     def library():
         books = Book.query.all()
-        return render_template('library.html', books=books)
+        return render_template('library.html', books=books, timedelta=timedelta)
+
 
     @app.route('/rent/<int:book_id>', methods=['POST'])
     @login_required
@@ -144,3 +146,5 @@ def setup_routes(app):
         db.session.commit()
 
         return redirect(url_for('library'))
+
+
