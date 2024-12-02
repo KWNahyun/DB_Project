@@ -15,12 +15,40 @@
 
         <h1 class="my-4">My Page</h1>
 
+        <!-- 회원 정보 -->
         <div class="user-info">
             <h2>회원 정보</h2>
-            <p><strong>사용자 이름:</strong> {{ user.username }}</p>
-            <p><strong>이메일:</strong> {{ user.email }}</p>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="row">사용자 이름</th>
+                        <td>{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">이메일</th>
+                        <td>{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">학번</th>
+                        <td>{{ user.student_id }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">전화번호</th>
+                        <td>{{ user.phone }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">학과</th>
+                        <td>{{ user.department }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">학년</th>
+                        <td>{{ user.year }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
+        <!-- 대여 중인 도서 -->
         <div class="rentals">
             <h2>대여 중인 도서</h2>
             {% if rentals %}

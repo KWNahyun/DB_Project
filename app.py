@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from models import db
 from login_manager import login_manager
 from controllers import setup_routes
+from flask_migrate import Migrate
 
 app = Flask(__name__)
 
@@ -16,6 +17,7 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 db.init_app(app)
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+migrate = Migrate(app, db)  # Flask-Migrate 초기화
 
 # 라우팅 설정
 setup_routes(app)

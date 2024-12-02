@@ -51,24 +51,39 @@
         </form>
 
         <!-- 회원가입 폼 (초기에는 숨겨져 있음) -->
-        <form id="signupForm" style="display:none;" action="/signup" method="post">
-            <div class="form-group">
-                <label for="signupUsername">사용자 이름:</label>
-                <input type="text" id="signupUsername" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="signupEmail">이메일:</label>
-                <input type="email" id="signupEmail" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="signupPassword">비밀번호:</label>
-                <input type="password" id="signupPassword" name="password" required>
-            </div>
-            <div class="buttons">
-                <input type="submit" value="회원가입">
-            </div>
-        </form>
-    </div>
+    <form id="signupForm" style="display:none;" action="/signup" method="post">
+        <div class="form-group">
+            <label for="signupUsername">사용자 이름:</label>
+            <input type="text" id="signupUsername" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="signupEmail">이메일:</label>
+            <input type="email" id="signupEmail" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="signupPassword">비밀번호:</label>
+            <input type="password" id="signupPassword" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="studentId">학번:</label>
+            <input type="number" id="studentId" name="student_id" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">전화번호:</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+            <label for="department">학과:</label>
+            <input type="text" id="department" name="department" required>
+        </div>
+        <div class="form-group">
+            <label for="year">학년:</label>
+            <input type="number" id="year" name="year" required>
+        </div>
+        <div class="buttons">
+            <input type="submit" value="회원가입">
+        </div>
+    </form>
 
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(e) {

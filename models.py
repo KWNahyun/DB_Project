@@ -10,6 +10,11 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(512))
 
+    student_id = db.Column(db.Integer, unique=True, nullable=False)  # 학번
+    phone = db.Column(db.String(20), nullable=False)  # 전화번호
+    department = db.Column(db.String(100), nullable=False)  # 학과
+    year = db.Column(db.Integer, nullable=False)  # 학년
+
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
 
