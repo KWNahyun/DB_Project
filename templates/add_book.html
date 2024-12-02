@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 등록</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 상단 버튼 -->
+        <div class="d-flex justify-content-end my-2">
+            <a href="{{ url_for('library') }}" class="btn btn-secondary">도서 목록</a>
+        </div>
+
+        <h1 class="my-4">도서 등록</h1>
+
+        <form action="{{ url_for('submit_book') }}" method="post">
+            <div class="form-group">
+                <label for="title">도서명</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="author">저자</label>
+                <input type="text" class="form-control" id="author" name="author" required>
+            </div>
+            <div class="form-group">
+                <label for="genre">장르</label>
+                <input type="text" class="form-control" id="genre" name="genre" required>
+            </div>
+            <div class="form-group">
+                <label for="publication_year">출판 연도</label>
+                <input type="number" class="form-control" id="publication_year" name="publication_year" required>
+            </div>
+            <div class="form-group">
+                <label for="isbn">ISBN</label>
+                <input type="text" class="form-control" id="isbn" name="isbn" required>
+            </div>
+            <div class="form-group">
+                <label for="availability">대여 가능 여부</label>
+                <select class="form-control" id="availability" name="availability" required>
+                    <option value="1">가능</option>
+                    <option value="0">불가능</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">등록</button>
+        </form>
+    </div>
+</body>
+</html>

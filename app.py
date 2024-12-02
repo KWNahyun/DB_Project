@@ -17,7 +17,7 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 db.init_app(app)
 login_manager.init_app(app)
 login_manager.login_view = 'login'
-migrate = Migrate(app, db)  # Flask-Migrate 초기화
+# migrate = Migrate(app, db)  # Flask-Migrate 초기화
 
 # 라우팅 설정
 setup_routes(app)

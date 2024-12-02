@@ -27,7 +27,7 @@ class Book(db.Model):
     author = db.Column(db.String(100), nullable=False)
     genre = db.Column(db.String(50), nullable=False)
     publication_year = db.Column(db.Integer, nullable=False)
-    isbn = db.Column(db.String(20), unique=True, nullable=False)
+    isbn = db.Column(db.String(50), unique=True, nullable=False)
     availability = db.Column(db.Boolean, default=True)
 
     def __repr__(self):

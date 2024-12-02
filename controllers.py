@@ -115,3 +115,32 @@ def setup_routes(app):
     def mypage():
         rentals = Rental.query.filter_by(user_id=current_user.id).all()
         return render_template('mypage.html', user=current_user, rentals=rentals)
+
+    @app.route('/add_book', methods=['GET'])
+    @login_required
+    def add_book():
+        return render_template('add_book.html')
+
+    @app.route('/submit_book', methods=['POST'])
+    @login_required
+    def submit_book():
+        title = request.form['title']
+        author = request.form['author']
+        genre = request.form['genre']
+        publication_year = request.form['publication_year']
+        isbn = request.form['isbn']
+        availability = bool(int(request.form['availability']))
+
+        # 도서 등록
+        new_book = Book(
+            title=title,
+            author=author,
+            genre=genre,
+            publication_year=publication_year,
+            isbn=isbn,
+            availability=availability
+        )
+        db.session.add(new_book)
+        db.session.commit()
+
+        return redirect(url_for('library'))

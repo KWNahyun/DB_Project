@@ -8,9 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- 우상단 버튼 -->
-        <div class="d-flex justify-content-end my-2">
+        <!-- 상단 버튼 -->
+        <div class="d-flex justify-content-between my-2">
             <a href="{{ url_for('mypage') }}" class="btn btn-primary">My Page</a>
+            <a href="{{ url_for('add_book') }}" class="btn btn-success">도서 등록</a>
         </div>
 
         <h1 class="my-4">도서 관리</h1>
