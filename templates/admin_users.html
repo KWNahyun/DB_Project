@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체 사용자 보기</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">전체 사용자 목록</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>사용자 이름</th>
+                    <th>이메일</th>
+                    <th>학번</th>
+                    <th>전화번호</th>
+                    <th>학과</th>
+                    <th>학년</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.student_id }}</td>
+                    <td>{{ user.phone }}</td>
+                    <td>{{ user.department }}</td>
+                    <td>{{ user.year }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('library') }}" class="btn btn-primary">도서 관리로 돌아가기</a>
+    </div>
+</body>
+</html>

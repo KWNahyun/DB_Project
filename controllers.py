@@ -4,6 +4,7 @@ from models import db, User, Book, Rental
 from datetime import datetime
 from login_manager import login_manager
 from datetime import timedelta
+from flask import abort
 
 def setup_routes(app):
 
@@ -147,4 +148,12 @@ def setup_routes(app):
 
         return redirect(url_for('library'))
 
+    @app.route('/admin/users', methods=['GET'])
+    @login_required
+    def view_users():
+        # 관리자인지 확인
+        if current_user.username != "admin":
+            abort(403)  # 권한이 없는 경우 403 Forbidden 반환
 
+        users = User.query.all()
+        return render_template('admin_users.html', users=users)
