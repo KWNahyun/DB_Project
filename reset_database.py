@@ -100,16 +100,6 @@ def reset_database():
 
         db.session.add_all(books)
 
-        # 예시 대출 기록 추가
-        rental1 = Rental(
-            user_id=1,  # user1 ID
-            book_id=2,  # book2 ID
-            rental_date=datetime.now(),
-            return_date=datetime.now() + timedelta(days=14),
-            status="대출 중"
-        )
-        db.session.add(rental1)
-
         # 데이터베이스 커밋
         db.session.commit()
         print("Database has been reset and example data added.")
