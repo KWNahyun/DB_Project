@@ -69,6 +69,11 @@ select user, host from user;
 create user USER_ID@localhost identified by 'USER_PASSWORD'; 
 grant all privileges on *.* to USER_ID@localhost;
 ```
+- 테스트를 위한 예시 데이터베이스 생성
+```
+python reset_database.py
+```
+-> 이후에 'flask run'을 하면 예시 데이터베이스로 초기화된다.
 # TODO (2024.11.25)
 - Bootstrap 연동해서 프런트 구성
 - MYSQL 연동하기
